@@ -22,8 +22,8 @@ public class InMemorySecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 			.withUser("ravi").password("{noop}1234").roles("CUSTOMER")
-			.and().withUser("raju").password("{noop}abcd").roles("SALES_PERSON")
-			.and().withUser("rakesh").password("{noop}1234").roles("ADMIN", "SALES_PERSON");
+			.and().withUser("raju").password("{bcrypt}$2a$10$i1xFxiQgOb3xmygH.UXnn.8XlQp/7vSHuoxpqdU3ECwj0CWAj/fKu").roles("SALES_PERSON", "CUSTOMER")
+			.and().withUser("rakesh").password("{noop}abcd").roles("ADMIN", "SALES_PERSON");
 	}
 
 	/* (non-Javadoc)
@@ -33,7 +33,10 @@ public class InMemorySecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/hello").hasRole("SALES_PERSON")
-			.antMatchers("/customer/placeorder").hasRole("CUSTOMER")
+			.antMatchers("/customer/**").hasRole("CUSTOMER")
+			/*.antMatchers("/customer/placeorder").hasRole("CUSTOMER")
+			.antMatchers("/customer/revieworder").hasRole("CUSTOMER")*/
+			.antMatchers("/").permitAll()
 			.and().formLogin();
 	}
 

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MmSbSecBasicApplication {
+public class InmemorySecurityDemoApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MmSbSecBasicApplication.class, args);
+		SpringApplication.run(InmemorySecurityDemoApp.class, args);
 	}
 
 }

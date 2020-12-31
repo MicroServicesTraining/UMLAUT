@@ -18,10 +18,10 @@ public class DemoController {
 		return "Hello MindMajix...!";
 	}
 	
-	@GetMapping("customer/placeorder")
-	public String placeOrder() {
-		return "<h1>Welcome Customer, Place your Orders here....!<h1>";
+	@GetMapping("/")
+	public String getIndexPage() {
+		return "Welcome User...!";
 	}
-
-	
+		
 }
+

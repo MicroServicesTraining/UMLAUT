@@ -18,4 +18,23 @@ public class DemoController {
 		return "Hello MindMajix...!";
 	}
 	
+	@GetMapping("/")
+	public String getIndexPage() {
+		return "Welcome User...!";
+	}
+		
+	@GetMapping("customer/placeorder")
+	public String palceOrder() {
+		return "<h1>Dear custormer, Place your orders from here...!</h1>";
+	}
+	
+	@GetMapping("customer/revieworder")
+	public String reviewOrder() {
+		return "<h1>Dear custormer, Review your orders here...!</h1>";
+	}
+	
+	@GetMapping("customer/confirmorder")
+	public String confirmOrder() {
+		return "<h1>Dear custormer, Confirm your orders here...!</h1>";
+	}
 }
